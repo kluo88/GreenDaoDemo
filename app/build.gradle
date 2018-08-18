@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // 添加应用依赖插件
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.itkluo.greendaodemo"
+        minSdkVersion 18
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+greendao {
+    //数据库的schema版本，也可以理解为数据库版本号.  如果更改了实体/数据库模式，则必须增加该值。默认为1
+    schemaVersion 1
+    //生成DaoMaster、DaoSession、Dao的包名，也就是要放置这些类的包的全路径。
+    daoPackage 'com.itkluo.greendaodemo.greendao'
+    //生成DaoMaster、DaoSession、Dao的目录, 默认为构建目录 (build/generated/source/greendao)
+    targetGenDir 'src/main/java'
+//    generateTests false //设置为true以自动生成单元测试
+//    targetGenDirTests //存储生成的单元测试的基本目录。默认为 src/androidTest/java。
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestCompile('com.android.support:support-annotations:26.1.0') {
+        force = true
+    }
+
+    compile 'org.greenrobot:greendao:3.2.0' //添加库文件
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+}

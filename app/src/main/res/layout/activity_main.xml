@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4848"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/btn_insert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="插入一条数据"
+                android:onClick="clickInsert"
+                android:textAllCaps="false" />
+
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="删除所有数据"
+                android:onClick="clickDelete"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="查询所有数据"
+                android:onClick="clickSearch"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
